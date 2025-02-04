@@ -27,24 +27,21 @@ def format_repository_name(repository_name, parsed_tp_name):
 
 def creatfile(path:str) :
     arbre_file = path.split("/")[0:-1]
-
     creaarch(arbre_file)
-
     namespace = "namespace "+".".join(path.split("/")[0:-1]) + ";"
-    print(path)
     with open(path, "w") as file:
         file.write(namespace)
 
 
-def creaarch(pathdos:list[str]) :
+def creaarch(path_dir: list[str]) :
     path = ""
-    for i in range(len(pathdos)) :
-        path += pathdos[i]
+    for i in range(len(path_dir)) :
+        path += path_dir[i]
         if not os.path.exists(path) :
             os.mkdir(path)
         path+="/"
 
-def main(tp_name,repository_link, tree):
+def main(tp_name, repository_link, tree):
 
     list_files = analysetree(tree)
 
@@ -59,11 +56,7 @@ def main(tp_name,repository_link, tree):
     os.rename(f"{repository_name}", f"{formatted_repository_name}")
     os.chdir(formatted_repository_name)
 
-    print(formatted_repository_name)
-    new_tp_dir = os.getcwd()
-    print(new_tp_dir)
-    with open("/home/ogama/dev/env/hxcurrent_tp_directory.env", "w") as file:
-        file.write(new_tp_dir)
+
     # subprocess.run(["git", "branch", "master"])
     # subprocess.run(["git", "switch", "master"])
 

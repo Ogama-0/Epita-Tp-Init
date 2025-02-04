@@ -1,6 +1,7 @@
 import re
 
-def analysetree(tree:str) :
+
+def analysetree(tree: str):
     pattern = re.compile(r"^(?P<indent>(?:│   |    )*)([├└]── )(?P<name>.+)$")
 
     lines = tree.splitlines()
