@@ -4,9 +4,8 @@ import re
 import sys
 from analysetree import analysetree
 
-tp_directory = "enter/the/path/to/you/tp/directory"
-login = "prénom.nom"
-
+tp_directory = os.environ["GLOBAL_TP_DIRECTORY"]
+login = os.environ["EPITA_LOGIN"]
 
 def format_tp_name(tp_name):
     formatted_tp_name = ""
